@@ -1,0 +1,128 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{ragged2e}
+\usepackage{amssymb}
+\usepackage[a4paper,width=170mm]{geometry}
+\usepackage{xparse}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{pdfpages}
+% \usepackage[nottoc]{tocbibind}
+
+
+\setlength{\parindent}{0pt} 
+
+\newcommand{\p}[1]{\partial#1}
+\newcommand{\pop}[2]{\dfrac{\p#1}{\p#2}}
+\newenvironment{sysmatrix}[1]
+ {\left[\begin{array}{@{}#1@{}}}
+ {\end{array}\right]}
+\newcommand{\ro}[1]{
+  \xrightarrow{{#1}}}
+
+    \ExplSyntaxOn
+    \NewDocumentCommand{\byparts}{O{0pt}m}
+    {
+      \keys_set:nn { elisabeth/byparts } { #2 }
+      \elisabeth_byparts:n { #1 }
+    }
+
+    \keys_define:nn { elisabeth/byparts }
+    {
+      u  .tl_set:N = \l__elisabeth_byparts_u_tl,
+      u' .tl_set:N = \l__elisabeth_byparts_up_tl,
+      v  .tl_set:N = \l__elisabeth_byparts_v_tl,
+      v' .tl_set:N = \l__elisabeth_byparts_vp_tl,
+    }
+
+    \cs_new_protected:Nn \elisabeth_byparts:n
+    {
+      \begin{vmatrix}\,\begin{aligned}
+      & u  = \l__elisabeth_byparts_u_tl  && u' = \l__elisabeth_byparts_up_tl
+      \\[#1]
+      & v' = \l__elisabeth_byparts_vp_tl && v  = \l__elisabeth_byparts_v_tl
+      \end{aligned}\,\end{vmatrix}
+    }
+
+    \ExplSyntaxOff
+
+
+\newcommand{\Course}{Course Name}
+\newcommand{\Ass}{Assignment 1}
+\newcommand{\Name}{Syed Ali}
+\newcommand{\Regno}{20ETCS002140}
+\newcommand{\Batch}{$3^{rd}$ Semester, 2020}
+\newcommand{\Date}{\today}
+\newcommand{\Courseno}{20XYZ123}
+\newcommand{\Program}{B.Tech in Computer Science}
+\newcommand{\Department}{Computer Science}
+\newcommand{\Faculty}{Dr. etc}
+
+
+
+\begin{document}
+\onehalfspacing
+\begin{titlepage}
+
+  \begin{center}
+    \vspace*{\fill}
+    \includegraphics[width=0.5\textwidth]{images/school logo.png}
+    \vspace{1cm}
+
+    \Huge
+    \textbf{\Course}
+
+    \vspace{0.5cm}
+    \LARGE
+    Assignment 1
+
+    \vspace{1cm}
+
+    \textbf{\Name}
+    \vspace{0.5cm}\\
+    \Large
+    \Regno\\
+    \Batch\\
+    \Date
+    \vspace{1.5cm}
+
+  \end{center}
+  \begin{center}
+    \Large
+    \begin{tabular}{ l l l l l }
+      Course Code  & : & \Courseno   \\
+      Course Title & : & \Course     \\
+      Program      & : & \Program    \\
+      Department   & : & \Department \\
+      Faculty      & : & \Faculty
+    \end{tabular}
+  \end{center}
+  \vspace*{\fill}
+\end{titlepage}
+
+% \includepdf[pages=1]{images/dec.pdf}
+\includepdf[pages=-]{images/ques.pdf}
+\tableofcontents
+\newpage
+
+\section{Section 1}
+\input{problem1}
+\newpage
+
+\section{Section 2}
+\input{problem2}
+\newpage
+
+\section{Section 3}
+\input{problem3}
+\newpage
+
+\section{Section 4}
+\input{problem4}
+
+% \bibliography{bok}
+% \bibliographystyle{unsrt}
+\end{document}
