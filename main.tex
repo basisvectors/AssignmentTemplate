@@ -1,22 +1,29 @@
 \documentclass[12pt]{article}
-\usepackage[utf8]{inputenc}
+% for images and pdfs
 \usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{float}
+% math typesetting
+\usepackage[utf8]{inputenc}
 \usepackage{amsmath}
-\usepackage{ragged2e}
 \usepackage{amssymb}
+\usepackage{mathtools}
+% for cosmetics
 \usepackage[a4paper,width=170mm]{geometry}
-\usepackage{xparse}
+\usepackage{ragged2e}
 \usepackage{xcolor}
 \usepackage{setspace}
-\usepackage{mathtools}
-\usepackage{pdfpages}
-% \usepackage[nottoc]{tocbibind}
+% for \newcommand
+\usepackage{xparse}
+% for typing code verbatim
+\usepackage{listings}
 
 
 \setlength{\parindent}{0pt} 
 
 \newcommand{\p}[1]{\partial#1}
-\newcommand{\pop}[2]{\dfrac{\p#1}{\p#2}}
+% \newcommand{\pop}[2]{\dfrac{\p#1}{\p#2}}
+
 \newenvironment{sysmatrix}[1]
  {\left[\begin{array}{@{}#1@{}}}
  {\end{array}\right]}
@@ -104,7 +111,8 @@
 \end{titlepage}
 
 % \includepdf[pages=1]{images/dec.pdf}
-\includepdf[pages=-]{images/ques.pdf}
+% \includepdf[pages=-]{images/ques.pdf}
+
 \tableofcontents
 \newpage
 
