@@ -24,37 +24,37 @@
 \newcommand{\p}[1]{\partial#1}
 % \newcommand{\pop}[2]{\dfrac{\p#1}{\p#2}}
 
-\newenvironment{sysmatrix}[1]
- {\left[\begin{array}{@{}#1@{}}}
- {\end{array}\right]}
-\newcommand{\ro}[1]{
-  \xrightarrow{{#1}}}
+% \newenvironment{sysmatrix}[1]
+%  {\left[\begin{array}{@{}#1@{}}}
+%  {\end{array}\right]}
+% \newcommand{\ro}[1]{
+%   \xrightarrow{{#1}}}
 
-    \ExplSyntaxOn
-    \NewDocumentCommand{\byparts}{O{0pt}m}
-    {
-      \keys_set:nn { elisabeth/byparts } { #2 }
-      \elisabeth_byparts:n { #1 }
-    }
+%     \ExplSyntaxOn
+%     \NewDocumentCommand{\byparts}{O{0pt}m}
+%     {
+%       \keys_set:nn { elisabeth/byparts } { #2 }
+%       \elisabeth_byparts:n { #1 }
+%     }
 
-    \keys_define:nn { elisabeth/byparts }
-    {
-      u  .tl_set:N = \l__elisabeth_byparts_u_tl,
-      u' .tl_set:N = \l__elisabeth_byparts_up_tl,
-      v  .tl_set:N = \l__elisabeth_byparts_v_tl,
-      v' .tl_set:N = \l__elisabeth_byparts_vp_tl,
-    }
+%     \keys_define:nn { elisabeth/byparts }
+%     {
+%       u  .tl_set:N = \l__elisabeth_byparts_u_tl,
+%       u' .tl_set:N = \l__elisabeth_byparts_up_tl,
+%       v  .tl_set:N = \l__elisabeth_byparts_v_tl,
+%       v' .tl_set:N = \l__elisabeth_byparts_vp_tl,
+%     }
 
-    \cs_new_protected:Nn \elisabeth_byparts:n
-    {
-      \begin{vmatrix}\,\begin{aligned}
-      & u  = \l__elisabeth_byparts_u_tl  && u' = \l__elisabeth_byparts_up_tl
-      \\[#1]
-      & v' = \l__elisabeth_byparts_vp_tl && v  = \l__elisabeth_byparts_v_tl
-      \end{aligned}\,\end{vmatrix}
-    }
+%     \cs_new_protected:Nn \elisabeth_byparts:n
+%     {
+%       \begin{vmatrix}\,\begin{aligned}
+%       & u  = \l__elisabeth_byparts_u_tl  && u' = \l__elisabeth_byparts_up_tl
+%       \\[#1]
+%       & v' = \l__elisabeth_byparts_vp_tl && v  = \l__elisabeth_byparts_v_tl
+%       \end{aligned}\,\end{vmatrix}
+%     }
 
-    \ExplSyntaxOff
+%     \ExplSyntaxOff
 
 
 \newcommand{\Course}{Course Name}
